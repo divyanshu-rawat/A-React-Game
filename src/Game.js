@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import Stars from './stars';
+import Button from './button';
+import Answer from './answer';
 
 class Game extends React.Component{
 
@@ -7,6 +10,9 @@ class Game extends React.Component{
       return(
           <div>
             <h3>Wanna Play Game !</h3>
+            <Stars />
+            <Button />
+            <Answer />
           </div>
         )
   }

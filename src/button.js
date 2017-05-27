@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-const Stars = (props) => {
+const Button = (props) => {
 
 	return(
 
@@ -13,5 +13,4 @@ const Stars = (props) => {
 
 }
 
-
-export default Stars;
+export default Button;
