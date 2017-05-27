@@ -5,8 +5,8 @@ const Button = (props) => {
 
 	return(
 
-		<div>
-			...
+		<div className = "col-lg-2">
+			<button>=</button>
 		</div>
 	)
 

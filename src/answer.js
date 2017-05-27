@@ -5,8 +5,8 @@ const Answer = (props) => {
 
 	return(
 
-		<div>
-			...
+		<div className = "col-lg-4 text-center">
+			{props.selectedNumbers.map((number,i) =><span key={i} className = "Numbers">{number}</span>) }
 		</div>
 	)
 
