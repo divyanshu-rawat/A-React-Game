@@ -9,8 +9,16 @@ import './App.css';
 class Game extends React.Component{
 
   state  = {
-    selectedNumbers:[2,4]
+    selectedNumbers:[]
   }
+
+  clickedNumber = (number) => {
+    if(this.state.selectedNumbers.indexOf(number) >= 0)
+      console.log(number);
+    else
+      this.setState((prevState) => ({selectedNumbers: prevState.selectedNumbers.concat(number)}))
+   }
+  
 
   render(){
       return(
@@ -21,7 +29,7 @@ class Game extends React.Component{
 	            <Stars />
 	            <Button />
 	            <Answer selectedNumbers = {this.state.selectedNumbers} />
-	            <Numbers selectedNumbers = {this.state.selectedNumbers} />
+	            <Numbers selectedNumbers = {this.state.selectedNumbers} clickedNumber = {this.clickedNumber} />
 	        </div>
           </div>
         )
