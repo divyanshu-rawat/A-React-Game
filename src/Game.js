@@ -11,26 +11,40 @@ class Game extends React.Component{
   state  = {
     selectedNumbers:[],
     numberofStars:1 + Math.floor((Math.random()*9)),
-    answer:null
+    answer:null,
+    usedNumber:[]
   }
 
   clickedNumber = (number) => {
+
     if(this.state.selectedNumbers.indexOf(number) >= 0){ return }
-      this.setState((prevState) => ({selectedNumbers: prevState.selectedNumbers.concat(number)}))
+      this.setState((prevState) => ({answer:null,selectedNumbers: prevState.selectedNumbers.concat(number)}))
    }
 
   unSelectNumber = (clickednumber) => {
-      this.setState((prevState) => ({selectedNumbers: prevState.selectedNumbers.filter((number) => number !== clickednumber )}))
+      this.setState((prevState) => ({answer:null,selectedNumbers: prevState.selectedNumbers.filter((number) => number !== clickednumber )}))
    }
 
    checkAnswer = () => {
       this.setState((prevState) => ({answer:prevState.numberofStars === prevState.selectedNumbers.reduce((previous,current) => previous + current,0)}))
    }
+
+   acceptAnswer = () => {
+      this.setState((prevState) => ({
+
+        numberofStars:1 + Math.floor((Math.random()*9)),
+        selectedNumbers:[],
+        answer:null,
+        usedNumber:prevState.usedNumber.concat(prevState.selectedNumbers)
+
+      }))
+   }
+
   
 
   render(){
 
-    const {selectedNumbers,numberofStars,answer} = this.state;
+    const {selectedNumbers,numberofStars,answer,usedNumber} = this.state;
 
       return(
           <div className = 'container'>
@@ -39,9 +53,9 @@ class Game extends React.Component{
             <div className = 'row'>
             <p>Current state : {answer}</p>
 	            <Stars numberofStars = {numberofStars} />
-	            <Button selectedNumbers ={selectedNumbers} answer = {answer} checkAnswer = {this.checkAnswer}/>
+	            <Button selectedNumbers ={selectedNumbers} answer = {answer} checkAnswer = {this.checkAnswer} acceptAnswer = {this.acceptAnswer}/>
 	            <Answer selectedNumbers = {selectedNumbers} unSelectNumber = {this.unSelectNumber}/>
-	            <Numbers selectedNumbers = {selectedNumbers} clickedNumber = {this.clickedNumber} />
+	            <Numbers selectedNumbers = {selectedNumbers} clickedNumber = {this.clickedNumber} usedNumber = {usedNumber} />
 	        </div>
           </div>
         )

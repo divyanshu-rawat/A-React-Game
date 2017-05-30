@@ -8,7 +8,9 @@ const Numbers = (props) => {
 		const getClassName = (number) =>{
 			if(props.selectedNumbers.indexOf(number) >= 0 )
 				return 'Numbers selected'
-			return 'Numbers';
+			if(props.usedNumber.indexOf(number) >= 0 )
+				return 'Numbers used'
+			return 'Numbers'
 		}
 
 
