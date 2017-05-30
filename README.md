@@ -15,11 +15,12 @@
 
 #### Description  
 
-* When the game starts, you get a random number of stars between 1 and 9, and you have the set of numbers in the bottom  
- frame that you can use. You can select one or more numbers that would sum up to the value of the random stars. The 
- objective is to correctly use all the numbers here in the bottom frame. If you end up with a number of stars that has no 
- possible correct combination, you get to redraw, which you can do five times. After that, if you still end up with a number 
- of stars that has no possible correct combination out of all the remaining numbers, then you lose the game.
+* When the game starts, you get a random number of stars between 1 and 9, and you have the set of numbers in the
+  bottom frame that you can use.
+* You can select one or more numbers that would sum up to the value of the random stars.
+  The objective is to correctly use all the numbers here in the bottom frame. If you end up with a number of stars that has     no possible correct combination, you get to redraw, which you can do five times.
+* After that, if you still end up with a  number of stars that has no possible correct combination out of all the remaining  
+  numbers, then you lose the game.
 
 ##
 
