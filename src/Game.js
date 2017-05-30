@@ -4,6 +4,7 @@ import Stars from './stars';
 import Button from './button';
 import Answer from './answer';
 import Numbers from './Numbers';
+import Status from './gamestatus';
 import './App.css';
 
 class Game extends React.Component{
@@ -13,7 +14,8 @@ class Game extends React.Component{
     numberofStars:1 + Math.floor((Math.random()*9)),
     answer:null,
     usedNumber:[],
-    resetCount:5
+    resetCount:5,
+    donestatus:null
   }
 
   clickedNumber = (number) => {
@@ -38,7 +40,7 @@ class Game extends React.Component{
         answer:null,
         usedNumber:prevState.usedNumber.concat(prevState.selectedNumbers)
 
-      }))
+      }),this.updateStatus)
    }
 
    resetGame = () => {
@@ -51,25 +53,36 @@ class Game extends React.Component{
         selectedNumbers:[],
         answer:null,
         resetCount:prevState.resetCount - 1
-      }))
+      }),this.updateStatus)
+   }
+
+      updateStatus = () => {
+
+      this.setState((prevState) => {
+          if(prevState.usedNumber.length == 9)
+            return {donestatus:'Cool you won !'}
+          else if(prevState.usedNumber != 9 && prevState.resetCount == 0)
+            return {donestatus:'try again'}
+      })
    }
 
   
 
   render(){
 
-    const {selectedNumbers,numberofStars,answer,usedNumber,resetCount} = this.state;
+    const {selectedNumbers,numberofStars,answer,usedNumber,resetCount,donestatus} = this.state;
 
       return(
           <div className = 'container'>
             <h3>Wanna Play Game !</h3>
             <hr />
             <div className = 'row'>
-            <p>Current state : {answer}</p>
 	            <Stars numberofStars = {numberofStars} />
 	            <Button selectedNumbers ={selectedNumbers} resetGame = {this.resetGame} answer = {answer} checkAnswer = {this.checkAnswer} acceptAnswer = {this.acceptAnswer} resetCount = {resetCount}/>
 	            <Answer selectedNumbers = {selectedNumbers} unSelectNumber = {this.unSelectNumber}/>
-	            <Numbers selectedNumbers = {selectedNumbers} clickedNumber = {this.clickedNumber} usedNumber = {usedNumber} />
+	            {donestatus ? <Status donestatus = {donestatus}/> 
+               : <Numbers selectedNumbers = {selectedNumbers} clickedNumber = {this.clickedNumber} usedNumber = {usedNumber} />
+              }
 	        </div>
           </div>
         )
