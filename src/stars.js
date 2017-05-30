@@ -4,12 +4,10 @@ import _ from "lodash";
 import range from "lodash/range";
 
 const Stars = (props) => {
-
-	const numberofStars = 1 + (Math.random()*9);
 	return(
 
 		<div className = "col-lg-6">
-			{_.range(numberofStars).map( i => <span key={i} className="fa fa-star"></span>) }
+			{_.range(props.numberofStars).map( i => <span key={i} className="fa fa-star"></span>) }
 		</div>
 	)
 
