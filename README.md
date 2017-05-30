@@ -76,8 +76,10 @@
 
 #### Examples
 
-* GET Request to URL http://localhost:4000/api/get_location    (without access token !)
+![alt tag](https://github.com/divyanshu-rawat/A-React-Game/blob/master/snapshots/correct_answer.png)
 
-![alt tag](https://github.com/divyanshu-rawat/task/blob/master/snapshots/without_access_token.png)
+##
+
+![alt tag](https://github.com/divyanshu-rawat/A-React-Game/blob/master/snapshots/wrong_answer.png)
 
 ##
