@@ -18,6 +18,11 @@
   cursor: pointer;
 }
 
+.custom{
+  padding: 8px 15px !important;
+}
+
+
 .selected {
   background-color: #eee;
   color: #ddd;

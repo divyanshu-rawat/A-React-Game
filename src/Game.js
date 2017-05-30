@@ -12,7 +12,8 @@ class Game extends React.Component{
     selectedNumbers:[],
     numberofStars:1 + Math.floor((Math.random()*9)),
     answer:null,
-    usedNumber:[]
+    usedNumber:[],
+    resetCount:5
   }
 
   clickedNumber = (number) => {
@@ -40,11 +41,24 @@ class Game extends React.Component{
       }))
    }
 
+   resetGame = () => {
+
+      if(this.state.resetCount == 0){return}
+
+      this.setState((prevState) => ({
+
+        numberofStars:1 + Math.floor((Math.random()*9)),
+        selectedNumbers:[],
+        answer:null,
+        resetCount:prevState.resetCount - 1
+      }))
+   }
+
   
 
   render(){
 
-    const {selectedNumbers,numberofStars,answer,usedNumber} = this.state;
+    const {selectedNumbers,numberofStars,answer,usedNumber,resetCount} = this.state;
 
       return(
           <div className = 'container'>
@@ -53,7 +67,7 @@ class Game extends React.Component{
             <div className = 'row'>
             <p>Current state : {answer}</p>
 	            <Stars numberofStars = {numberofStars} />
-	            <Button selectedNumbers ={selectedNumbers} answer = {answer} checkAnswer = {this.checkAnswer} acceptAnswer = {this.acceptAnswer}/>
+	            <Button selectedNumbers ={selectedNumbers} resetGame = {this.resetGame} answer = {answer} checkAnswer = {this.checkAnswer} acceptAnswer = {this.acceptAnswer} resetCount = {resetCount}/>
 	            <Answer selectedNumbers = {selectedNumbers} unSelectNumber = {this.unSelectNumber}/>
 	            <Numbers selectedNumbers = {selectedNumbers} clickedNumber = {this.clickedNumber} usedNumber = {usedNumber} />
 	        </div>
