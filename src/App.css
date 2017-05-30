@@ -19,9 +19,16 @@
 }
 
 .custom{
-  padding: 8px 15px !important;
+  padding: 8px 14px !important;
 }
 
+.custom_two{
+  padding: 8px 11px !important;
+}
+
+.custom_three{
+  padding: 8px 12px !important;
+}
 
 .selected {
   background-color: #eee;

@@ -6,7 +6,7 @@ import range from "lodash/range";
 const Stars = (props) => {
 	return(
 
-		<div className = "col-lg-6">
+		<div className = "col-lg-3">
 			{_.range(props.numberofStars).map( i => <span key={i} className="fa fa-star"></span>) }
 		</div>
 	)

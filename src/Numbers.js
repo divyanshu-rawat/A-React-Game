@@ -15,7 +15,7 @@ const Numbers = (props) => {
 
 
 	return(
-		<div className = "card text-center col-lg-12">
+		<div className = "text-center  col-lg-12">
 			<div>
 				{ Numbers.list.map((number,i) => <span onClick = { () => props.clickedNumber(number)}  className = {getClassName(number)} key={i}>{number}</span>) }
 			</div>
