@@ -13,6 +13,12 @@
 
 ##
 
+### Live Application
+
+[![Live Demo Here](https://img.shields.io/badge/website-up-orange.svg)](http://areactgame.surge.sh/)
+
+##
+
 #### Description  
 
 * When the game starts, you get a random number of stars between 1 and 9, and you have the set of numbers in the
